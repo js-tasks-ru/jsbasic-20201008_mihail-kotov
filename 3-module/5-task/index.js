@@ -4,5 +4,14 @@
  * @returns {{min:number, max:number}}  объект
  */
 function getMinMax(str) {
-  // ваш код...
+  let arr = str.split(' ')
+    .join()
+    .split(',')
+    .map(item => Number(item))
+    .filter(value => !isNaN(value));
+
+  return {
+    'min': Math.min(...arr),
+    'max': Math.max(...arr),
+  };
 }
