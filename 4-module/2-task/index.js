@@ -11,7 +11,6 @@ function makeDiagonalRed(table) {
     let cells = rows[i].cells;
 
     for (let j = 0; j < cells.length; j++) {
-      console.log(cells[j]);
       cells[counter].style.backgroundColor = 'red';
     }
 
