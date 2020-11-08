@@ -5,6 +5,7 @@ export default class Carousel {
     this.slides = slides;
     this.elem = document.createElement('div');
     this.elem.classList.add('carousel');
+
     this.render(slides);
 
     this.elem.addEventListener("click", (event) => this.onClick(event));
@@ -85,7 +86,7 @@ export default class Carousel {
       counter -= carouselInnerWidth;
 
       carouselInner.style.transform = `translateX(-${counter}px)`;
-      
+
       slidesWidth = (carouselSlides.length - 1) * carouselInner.offsetWidth;
 
       if (counter === 0) {
