@@ -4,7 +4,7 @@ export default class Modal {
   constructor() {
     this.elem = document.createElement('div');
     this.elem.classList.add('modal');
-    
+
     this.render();
     this.elem.addEventListener('click', (event) => this.modalClose(event));
     document.addEventListener('keydown', (event) => this.modalClose(event));
@@ -39,6 +39,7 @@ export default class Modal {
   }
 
   close() {
+    document.removeEventListener('keydown', (event) => this.modalClose(event));
     document.body.classList.remove('is-modal-open');
     this.elem.remove();
   }
