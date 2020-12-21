@@ -24,28 +24,15 @@ export default class Cart {
   }
 
   updateProductCount(productId, amount) {
-    if (this.cartItems.length === 0) {
-      return
+    let cartItem = this.cartItems.find(item => item.product.id === productId);
+    cartItem.count += amount;
+
+    if (cartItem.count === 0) {
+      let cartIndex = this.cartItems.findIndex(item => item.product.id === productId);
+      this.cartItems.splice(cartIndex, 1);
     }
 
-    if (amount === 1) {
-      let cartItemCountIncrease = this.cartItems.find(item => item.product.id === productId);
-      cartItemCountIncrease.count = cartItemCountIncrease.count + 1;
-      this.onProductUpdate(cartItemCountIncrease);
-    }
-
-    if (amount === -1) {
-      let cartItemCountDecrease = this.cartItems.find(item => item.product.id === productId);
-      cartItemCountDecrease.count = cartItemCountDecrease.count - 1;
-
-      if (cartItemCountDecrease.count === 0) {
-        let index = this.cartItems.findIndex(item => item.product.id === productId);
-        this.cartItems.splice(index, 1)
-        this.onProductUpdate(cartItemCountDecrease);
-      }
-
-      this.onProductUpdate(cartItemCountDecrease);
-    }
+    this.onProductUpdate(cartItem);
   }
 
   isEmpty() {
