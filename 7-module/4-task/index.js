@@ -15,7 +15,7 @@ export default class StepSlider {
     this.onClickAndDrag();
   }
 
-  //верстаем слайдер по образу и подобию необходимого)
+  //верстаем слайдер
   render(config) {
     let sliderThumb = `<div class="slider__thumb"><span class="slider__value"></span></div>`;
     this._elem.insertAdjacentHTML("beforeend", sliderThumb);
