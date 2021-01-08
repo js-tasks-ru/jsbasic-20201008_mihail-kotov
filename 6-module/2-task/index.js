@@ -13,7 +13,7 @@ export default class ProductCard {
 
     this.renderCard(product);
 
-    this._elem.addEventListener("click", (evt) => this.onClick(evt, product));  
+    this._elem.addEventListener("click", (evt) => this.onClick(evt, product));
   }
 
   renderCard(data) {
@@ -31,7 +31,7 @@ export default class ProductCard {
                   <button type="button" class="card__button">
                     <img src="/assets/images/icons/plus-icon.svg" alt="icon">
                   </button>
-                </div>              
+                </div>
                 `;
 
     card.insertAdjacentHTML('afterbegin', cardHtml);
